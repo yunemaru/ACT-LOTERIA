@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tarjeta de Loteria Aleatoria</title>
+  <style>
+    /* Estilos CSS */
+    #lottery-card {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .container button {
+            background-color: #333; /* Color de fondo de los botones */
+            color: white; 
+            border: none; 
+            padding: 10px 20px; 
+            margin: 0 10px; 
+            cursor: pointer; 
+        }
+        .container button:hover {
+            background-color: #555; /* Cambia el color de fondo al pasar el ratón */
+        }
+  </style>
+</head>
+<body>
+  <div id="lottery-card"></div>
+
+  <div class="container">
+    <center><button id="next-button">Next</button></center>
+  </div>
+
+  <script>
+    // Arreglo con rutas de imágenes de tarjetas de lotería
+    const lotteryCards = [
+      "Tarjeta1.png",
+      "Tarjeta2.png", // Ruta de la imagen para la tarjeta 2
+      "Tarjeta3.png",
+      "Tarjeta4.png",
+      "Tarjeta5.png",
+    ];
+
+    // Función para obtener una tarjeta aleatoria
+    function obtenerTarjetaAleatoria() {
+      const indice = Math.floor(Math.random() * lotteryCards.length);
+      return lotteryCards[indice];
+    }
+
+    // Función para mostrar una tarjeta aleatoria en el elemento con el id "lottery-card"
+    function mostrarTarjeta() {
+      const lotteryCardElement = document.getElementById('lottery-card');
+      const tarjeta = obtenerTarjetaAleatoria();
+      lotteryCardElement.innerHTML = `<img src="${tarjeta}" alt="Tarjeta de Lotería">`;
+    }
+
+    // Asignar evento al botón "Siguiente" para mostrar la siguiente tarjeta
+    document.getElementById('next-button').addEventListener('click', mostrarTarjeta);
+
+    // Mostrar la primera tarjeta al cargar la página
+    mostrarTarjeta();
+  </script>
+</body>
+</html>

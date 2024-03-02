@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOTERIAA</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        li {
+            margin: 10px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        li:hover {
+            transform: translateY(-5px);
+        }
+        img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Lista de Imágenes</h1>
+        <ul id="lista-imagenes"></ul>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Arreglo de URLs de imágenes
+            var imagenes = [
+                "lot1.jpg",
+                "lot2.jpg",
+                "lot3.jpg",
+                "lot4.jpg",
+                "lot5.jpg",
+                "lot6.jpg"
+            ];
+            // Obtener la lista desordenada
+            var listaImagenes = document.getElementById("lista-imagenes");
+            imagenes.forEach(function(imagenUrl) {
+                // Crear un elemento de lista
+                var li = document.createElement("li");
+                // Crear un elemento de imagen
+                var imagen = document.createElement("img");
+                imagen.src = imagenUrl;
+                li.appendChild(imagen);
+                // Agregar el elemento de lista a la lista desordenada
+                listaImagenes.appendChild(li);
+            });
+        });
+    </script>
+</body>
+</html>
